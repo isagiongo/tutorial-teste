@@ -1,5 +1,6 @@
 package com.isagiongo.tutorialdevsjava.controllers;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.isagiongo.tutorialdevsjava.models.Contact;
 import com.isagiongo.tutorialdevsjava.services.ContactService;
@@ -45,9 +47,15 @@ public class ContactController {
 	
 	@ApiOperation(value = "Cria novo contato", notes = "Cria novo contato, tendo como campos obrigatórios Name e Email")
 	@PostMapping
-	public Contact create(@Valid @RequestBody Contact contact){
-	   return contactService.save(contact);
+	public ResponseEntity<Contact> create(@Valid @RequestBody Contact contact){
+		Contact obj = contactService.save(contact);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).body(obj);
 	}
+	
+//	public Contact create(@Valid @RequestBody Contact contact){
+//	   return contactService.save(contact);
+//	}
 	
 	@ApiOperation(value = "Altera contato por Id", notes = "Altera contato por Id")
 	@PutMapping(value="/{id}")
@@ -59,7 +67,7 @@ public class ContactController {
 	               record.setEmail(contact.getEmail());
 	               record.setPhone(contact.getPhone());
 	               Contact updated = contactService.save(record);
-	               return ResponseEntity.ok().body(updated);
+	               return ResponseEntity.accepted().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
