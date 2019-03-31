@@ -53,10 +53,6 @@ public class ContactController {
 		return ResponseEntity.created(uri).body(obj);
 	}
 	
-//	public Contact create(@Valid @RequestBody Contact contact){
-//	   return contactService.save(contact);
-//	}
-	
 	@ApiOperation(value = "Altera contato por Id", notes = "Altera contato por Id")
 	@PutMapping(value="/{id}")
 	public ResponseEntity update(@PathVariable("id") long id,
@@ -80,7 +76,4 @@ public class ContactController {
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}
-
-
-
 }
