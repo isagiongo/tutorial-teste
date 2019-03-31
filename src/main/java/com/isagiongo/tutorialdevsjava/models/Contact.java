@@ -1,4 +1,4 @@
-package com.isagiongo.testetutorial.models;
+package com.isagiongo.tutorialdevsjava.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

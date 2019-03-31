@@ -1,4 +1,4 @@
-package com.isagiongo.testetutorial.controllers;
+package com.isagiongo.tutorialdevsjava.controllers;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.isagiongo.testetutorial.models.Contact;
-import com.isagiongo.testetutorial.services.ContactService;
+import com.isagiongo.tutorialdevsjava.models.Contact;
+import com.isagiongo.tutorialdevsjava.services.ContactService;
 
 import io.swagger.annotations.ApiOperation;
 

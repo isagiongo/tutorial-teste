@@ -1,4 +1,4 @@
-package com.isagiongo.testetutorial.services;
+package com.isagiongo.tutorialdevsjava.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.isagiongo.testetutorial.models.Contact;
-import com.isagiongo.testetutorial.repositories.ContactRepository;
+import com.isagiongo.tutorialdevsjava.models.Contact;
+import com.isagiongo.tutorialdevsjava.repositories.ContactRepository;
 
 @Service
 public class ContactService {

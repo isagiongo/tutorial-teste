@@ -1,4 +1,4 @@
-package com.isagiongo.testetutorial.config;
+package com.isagiongo.tutorialdevsjava.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
   public Docket greetingApi() {
     return new Docket(DocumentationType.SWAGGER_2)
         .select()
-        .apis(RequestHandlerSelectors.basePackage("com.isagiongo.testetutorial"))
+        .apis(RequestHandlerSelectors.basePackage("com.isagiongo.tutorialdevsjava"))
         .build()
         .apiInfo(metaData());
 
@@ -33,8 +33,8 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         .title("API REST com Spring, JPA, H2")
         .description("\"API REST utilizando Spring Boot 2, Hibernate, JPA e H2\"")
         .version("1.0.0")
-        .license("Apache License Version 2.0")
-        .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
+        .license("Devs JavaGirls")
+        .licenseUrl("https://www.meetup.com/pt-BR/Devs-Java-Girl/\"")
         .build();
   }
 
