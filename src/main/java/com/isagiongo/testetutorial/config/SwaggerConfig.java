@@ -31,9 +31,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
   private ApiInfo metaData() {
     return new ApiInfoBuilder()
         .title("API REST com Spring, JPA, H2")
-        .description("\"API REST utilizando Spring Boot 2, Hibernate, JPA e H2:\n" + 
-        		"\n" + 
-        		"\"")
+        .description("\"API REST utilizando Spring Boot 2, Hibernate, JPA e H2\"")
         .version("1.0.0")
         .license("Apache License Version 2.0")
         .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")

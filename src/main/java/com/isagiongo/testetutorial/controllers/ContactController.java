@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.isagiongo.testetutorial.models.Contact;
 import com.isagiongo.testetutorial.services.ContactService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/contacts")
 public class ContactController {
@@ -25,11 +27,15 @@ public class ContactController {
 	@Autowired
 	private ContactService contactService;
 	
+	
+	@ApiOperation(value = "Lista todos os contatos", notes = "Lista todos os contatos", 
+			response = Contact.class, responseContainer = "List" )
 	@GetMapping
 	public List<Contact> findAll(){
 		return contactService.findAll();
 	}
 	
+	@ApiOperation(value = "Busca contato por Id", notes = "Busca contato por Id")
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Contact> findById(@PathVariable Long id){
 		return contactService.findById(id)
@@ -37,11 +43,13 @@ public class ContactController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
+	@ApiOperation(value = "Cria novo contato", notes = "Cria novo contato, tendo como campos obrigatórios Name e Email")
 	@PostMapping
 	public Contact create(@Valid @RequestBody Contact contact){
 	   return contactService.save(contact);
 	}
 	
+	@ApiOperation(value = "Altera contato por Id", notes = "Altera contato por Id")
 	@PutMapping(value="/{id}")
 	public ResponseEntity update(@PathVariable("id") long id,
 	                                      @RequestBody Contact contact) {
@@ -55,6 +63,7 @@ public class ContactController {
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
+	@ApiOperation(value = "Deleta contato por Id", notes = "Deleta contato por Id")
 	@DeleteMapping(path ={"/{id}"})
 	public ResponseEntity<?> delete(@PathVariable long id) {
 	   return contactService.findById(id)
