@@ -1,4 +1,4 @@
-package com.isagiongo.testetutorial;
+package com.isagiongo.tutorialdevsjava;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
